@@ -71,7 +71,7 @@ function App() {
     function refactorData(response) {
       const ticketArray = response.data.tickets.map((ticket) => {
         const userObj = response.data.users.find(
-          (user) => user.id === ticket.userId
+          (user) => user?.id === ticket?.userId
         );
         return { ...ticket, userObj };
       });
@@ -94,7 +94,7 @@ function App() {
   }
 
   return (
-    <DndProvider backend={HTML5Backend}>
+    <>
       <NavBar
         groupValue={groupValue}
         orderValue={orderValue}
@@ -143,8 +143,7 @@ function App() {
             ))}
         </div>
       </section>
-    </DndProvider>
-    
+    </>
   );
 }
 

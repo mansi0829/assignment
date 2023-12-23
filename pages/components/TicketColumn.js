@@ -3,7 +3,7 @@ import { useDrag } from "react-dnd";
 
 const TicketColumn = ({ cardDetails }) => {
   const [{ isDragging }, drag] = useDrag({
-    item: { type: "CARD", cardDetails },
+    item: cardDetails ? { type: "CARD", cardDetails } : null,
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
@@ -16,7 +16,7 @@ const TicketColumn = ({ cardDetails }) => {
       <div className="card-container p-4 border rounded border-gray-300 mb-4">
         <div className="flex items-between">
           <div className="text-gray-600 text-sm font-semibold">
-            {cardDetails.id}
+            {cardDetails?.id}
           </div>
         </div>
       </div>

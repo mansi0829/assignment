@@ -1,5 +1,5 @@
 import React from "react";
-import { useDrag } from 'react-dnd';
+import { useDrag } from "react-dnd";
 
 export default function TicketCard(props) {
   const priorityIcons = {
@@ -88,25 +88,26 @@ export default function TicketCard(props) {
     ),
   };
 
-  const userInitials = props.cardDetails.userObj.name.slice(0, 1);
+  const userInitials = props.cardDetails?.userObj?.name?.slice(0, 1) || '';
 
   return (
     <div className="card-container p-4 border-2 rounded border-gray-300 shadow-sm hover:shadow-lg mb-4 cursor-pointer bg-gray-100">
       <div className="flex items-between">
         <div className="text-gray-600 text-sm font-semibold">
-          {props.cardDetails.id}-{userInitials}
+          {props.cardDetails?.id}-{userInitials}
         </div>
         <div className="flex items-center">
           <div className="w-8 h-8 flex items-center justify-center bg-primary-color rounded-full">
             <div
               className={`w-4 h-4 bg-gray-200 border-2 border-white rounded-full absolute bottom-0 right-0 ${
-                props.cardDetails.userObj.available ? "bg-secondary-color" : ""
+                props.cardDetails?.userObj?.available ? "bg-secondary-color" : ""
               }`}
             ></div>
           </div>
         </div>
         <div className="text-gray-600 text-sm font-semibold">
-          User Name: {props.cardDetails.userObj.name}
+          User Name: 
+          {props.cardDetails.userObj ? props.cardDetails.userObj.name : ""}
         </div>
       </div>
       <div className="text-base font-semibold mt-2">

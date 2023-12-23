@@ -257,19 +257,17 @@ export default function KanbanBoard(props) {
         </div>
 
         <div className="list-card-items w-full">
-          {props.ticketDetails.map((ticket, index) => {
-            if (ticket.status === props.listTitle) {
-              cardCount++;
-              return <TicketCard key={index} cardDetails={ticket} />;
-            } else if (ticket.priority === props.listTitle) {
-              cardCount++;
-              return <TicketCard key={index} cardDetails={ticket} />;
-            } else if (ticket.userObj.name === props.listTitle) {
+          {props.ticketDetails?.map((ticket, index) => {
+            if (
+              ticket.status === props.listTitle ||
+              ticket.priority === props.listTitle ||
+              (ticket.userObj && ticket.userObj.name === props.listTitle)
+            ) {
               cardCount++;
               return <TicketCard key={index} cardDetails={ticket} />;
             }
             return null;
-          }, (cardCount = 0))}
+          })}
         </div>
       </div>
     </>
