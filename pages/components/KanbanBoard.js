@@ -26,9 +26,9 @@ export default function KanbanBoard(props) {
                               <g
                                 fill="none"
                                 stroke="brown"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
                               >
                                 <path d="m4 8l8 4l8-4l-8-4z" />
                                 <path
