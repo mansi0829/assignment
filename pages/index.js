@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import KanbanBoard from "./components/KanbanBoard";
 import NavBar from "./components/NavBar";
 
@@ -92,7 +94,7 @@ function App() {
   }
 
   return (
-    <>
+    <DndProvider backend={HTML5Backend}>
       <NavBar
         groupValue={groupValue}
         orderValue={orderValue}
@@ -141,7 +143,8 @@ function App() {
             ))}
         </div>
       </section>
-    </>
+    </DndProvider>
+    
   );
 }
 

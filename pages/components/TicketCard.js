@@ -1,4 +1,5 @@
 import React from "react";
+import { useDrag } from 'react-dnd';
 
 export default function TicketCard(props) {
   const priorityIcons = {
