@@ -1,6 +1,4 @@
 import React from "react";
-
-// import './List.css'
 import TicketCard from "../components/TicketCard";
 
 let cardCount = 0;
@@ -259,16 +257,16 @@ export default function KanbanBoard(props) {
         </div>
 
         <div className="list-card-items w-full">
-          {props.ticketDetails.map((ticket) => {
+          {props.ticketDetails.map((ticket, index) => {
             if (ticket.status === props.listTitle) {
               cardCount++;
-              return <TicketCard cardDetails={ticket} />;
+              return <TicketCard key={index} cardDetails={ticket} />;
             } else if (ticket.priority === props.listTitle) {
               cardCount++;
-              return <TicketCard cardDetails={ticket} />;
+              return <TicketCard key={index} cardDetails={ticket} />;
             } else if (ticket.userObj.name === props.listTitle) {
               cardCount++;
-              return <TicketCard cardDetails={ticket} />;
+              return <TicketCard key={index} cardDetails={ticket} />;
             }
             return null;
           }, (cardCount = 0))}
