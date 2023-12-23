@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
-import KanbanBoard from "./Components/KanbanBoard";
-import NavBar from "./Components/NavBar";
+import KanbanBoard from "./components/KanbanBoard";
+import NavBar from "./components/NavBar";
 
 function App() {
   const statusList = ["In progress", "Backlog", "Todo", "Done", "Cancelled"];

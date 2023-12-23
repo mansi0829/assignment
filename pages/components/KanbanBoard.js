@@ -1,6 +1,4 @@
 import React from "react";
-
-// import './List.css'
 import TicketCard from "../components/TicketCard";
 
 let cardCount = 0;
