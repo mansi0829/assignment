@@ -1,9 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import KanbanBoard from "./components/KanbanBoard";
-import NavBar from "./components/NavBar";
+import KanbanBoard from "./Components/KanbanBoard";
+import NavBar from "./Components/NavBar";
 
 function App() {
   const statusList = ["In progress", "Backlog", "Todo", "Done", "Cancelled"];
@@ -71,7 +69,7 @@ function App() {
     function refactorData(response) {
       const ticketArray = response.data.tickets.map((ticket) => {
         const userObj = response.data.users.find(
-          (user) => user?.id === ticket?.userId
+          (user) => user.id === ticket.userId
         );
         return { ...ticket, userObj };
       });

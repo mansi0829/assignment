@@ -1,4 +1,6 @@
 import React from "react";
+
+// import './List.css'
 import TicketCard from "../components/TicketCard";
 
 let cardCount = 0;
@@ -51,9 +53,9 @@ export default function KanbanBoard(props) {
                               <path
                                 fill="none"
                                 stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
                                 d="M8.56 3.69a9 9 0 0 0-2.92 1.95M3.69 8.56A9 9 0 0 0 3 12m.69 3.44a9 9 0 0 0 1.95 2.92m2.92 1.95A9 9 0 0 0 12 21m3.44-.69a9 9 0 0 0 2.92-1.95m1.95-2.92A9 9 0 0 0 21 12m-.69-3.44a9 9 0 0 0-1.95-2.92m-2.92-1.95A9 9 0 0 0 12 3"
                               />
                             </svg>
@@ -257,17 +259,19 @@ export default function KanbanBoard(props) {
         </div>
 
         <div className="list-card-items w-full">
-          {props.ticketDetails?.map((ticket, index) => {
-            if (
-              ticket.status === props.listTitle ||
-              ticket.priority === props.listTitle ||
-              (ticket.userObj && ticket.userObj.name === props.listTitle)
-            ) {
+          {props.ticketDetails.map((ticket) => {
+            if (ticket.status === props.listTitle) {
               cardCount++;
-              return <TicketCard key={index} cardDetails={ticket} />;
+              return <TicketCard cardDetails={ticket} />;
+            } else if (ticket.priority === props.listTitle) {
+              cardCount++;
+              return <TicketCard cardDetails={ticket} />;
+            } else if (ticket.userObj.name === props.listTitle) {
+              cardCount++;
+              return <TicketCard cardDetails={ticket} />;
             }
             return null;
-          })}
+          }, (cardCount = 0))}
         </div>
       </div>
     </>
